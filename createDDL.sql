@@ -1,0 +1,5 @@
+CREATE TABLE database.item (idItem INTEGER AUTO_INCREMENT NOT NULL, available TINYINT(1) default 0, desciption VARCHAR(100), name VARCHAR(45), price FLOAT, PRIMARY KEY (idItem))
+CREATE TABLE database.user (iduser INTEGER AUTO_INCREMENT NOT NULL, birthday DATE, city VARCHAR(45), country VARCHAR(45), name VARCHAR(45) NOT NULL, password VARCHAR(45) NOT NULL, province VARCHAR(45), surname VARCHAR(45) NOT NULL, username VARCHAR(45) NOT NULL, PRIMARY KEY (iduser))
+CREATE TABLE database.order (idOrder INTEGER AUTO_INCREMENT NOT NULL, date DATE, description VARCHAR(100), stato VARCHAR(9), time TIME(6), fk_item INTEGER, fk_user INTEGER, PRIMARY KEY (idOrder))
+ALTER TABLE database.order ADD CONSTRAINT FK_order_fk_item FOREIGN KEY (fk_item) REFERENCES database.item (idItem)
+ALTER TABLE database.order ADD CONSTRAINT FK_order_fk_user FOREIGN KEY (fk_user) REFERENCES database.user (iduser)
