@@ -7,9 +7,13 @@ import javax.ejb.LocalBean;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+
+
 import model.*;
 
 /**
@@ -17,10 +21,17 @@ import model.*;
  * @see .User
  * @author Hibernate Tools
  */
+@NamedQuery(
+		name="findUserByUsername",
+		query="select u from User u where u.username = :userName"
+		)
+
 @LocalBean
 @Stateless
 public class UserHome {
 
+	
+	
 	private static final Log log = LogFactory.getLog(UserHome.class);
 	
     @PersistenceContext
@@ -71,6 +82,20 @@ public class UserHome {
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;
+		}
+	}
+	
+	public User findByUsername(String username) {
+		log.debug("getting User instance with username: " + username);
+		System.out.println("findByUsername"+username);
+		try{
+			return    entityManager.createQuery("select u from User u where u.username = :userName",User.class)
+					.setParameter("userName", username)
+					.getSingleResult();
+		}
+		catch(javax.persistence.NoResultException e){
+
+			return null;
 		}
 	}
 }
