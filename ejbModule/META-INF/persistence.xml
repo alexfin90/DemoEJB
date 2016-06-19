@@ -6,5 +6,7 @@
 	<class>model.Item</class>
 	<class>model.Order</class>
 	<class>model.User</class>
+	<class>model.Country</class>
+	<class>model.Province</class>
 	</persistence-unit>
 </persistence>
