@@ -11,6 +11,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name="\"ORDER\"")
 @NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -31,6 +32,7 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="fk_item")
 	private Item item;
+	
 
 	//bi-directional many-to-one association to User
 	@ManyToOne

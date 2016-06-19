@@ -1,5 +1,7 @@
 package beanDao;
 
+import java.util.List;
+
 // default package
 // Generated Jun 14, 2016 3:31:40 PM by Hibernate Tools 5.1.0.Alpha1
 
@@ -68,4 +70,17 @@ public class ItemHome {
 			throw re;
 		}
 	}
+	
+	public List<Item> findAlItems(){
+		log.debug("getting all Items ");
+		try{
+			return entityManager.createQuery("select i from Item i ",Item.class)
+					.getResultList();
+		}catch(javax.persistence.NoResultException e){
+			return null;
+		}
+	}
+
+	
+
 }

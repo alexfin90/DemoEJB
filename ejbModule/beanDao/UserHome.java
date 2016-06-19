@@ -21,10 +21,6 @@ import model.*;
  * @see .User
  * @author Hibernate Tools
  */
-@NamedQuery(
-		name="findUserByUsername",
-		query="select u from User u where u.username = :userName"
-		)
 
 @LocalBean
 @Stateless
@@ -39,7 +35,6 @@ public class UserHome {
 	
 	public void persist(User transientInstance) {
 		log.debug("persisting User instance");
-		System.out.println("persisting User instance");
 		try {
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
@@ -87,7 +82,6 @@ public class UserHome {
 	
 	public User findByUsername(String username) {
 		log.debug("getting User instance with username: " + username);
-		System.out.println("findByUsername"+username);
 		try{
 			return    entityManager.createQuery("select u from User u where u.username = :userName",User.class)
 					.setParameter("userName", username)

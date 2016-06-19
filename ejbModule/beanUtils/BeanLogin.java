@@ -27,7 +27,6 @@ public class BeanLogin {
     
     
     public boolean login(String username,String password){
-    	 System.out.println("login Bean EJB");
     	 user = userHome.findByUsername(username);
     	 if(user == null) return false;
     	 else if (user.getPassword().compareTo(password)==0 ) return true;

@@ -125,7 +125,6 @@ public class User implements Serializable {
 	public Order addOrder(Order order) {
 		getOrders().add(order);
 		order.setUser(this);
-
 		return order;
 	}
 
@@ -134,6 +133,13 @@ public class User implements Serializable {
 		order.setUser(null);
 
 		return order;
+	}
+	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.name +this.surname;
 	}
 
 }

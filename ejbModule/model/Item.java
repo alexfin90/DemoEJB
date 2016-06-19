@@ -17,7 +17,7 @@ public class Item implements Serializable {
 	@Id
 	private int idItem;
 
-	private byte available;
+	private int available;
 
 	private String desciption;
 
@@ -47,7 +47,7 @@ public class Item implements Serializable {
 		this.idItem = idItem;
 	}
 
-	public byte getAvailable() {
+	public int getAvailable() {
 		return this.available;
 	}
 
