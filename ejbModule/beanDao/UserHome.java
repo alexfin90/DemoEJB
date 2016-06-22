@@ -35,6 +35,7 @@ public class UserHome {
 	
 	public void persist(User transientInstance) {
 		log.debug("persisting User instance");
+		System.out.println("persist");
 		try {
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
