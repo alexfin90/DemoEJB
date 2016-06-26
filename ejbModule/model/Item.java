@@ -14,7 +14,7 @@ import java.util.List;
 public class Item implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@Id  @GeneratedValue(strategy=GenerationType.AUTO)
 	private int idItem;
 
 	private int available;

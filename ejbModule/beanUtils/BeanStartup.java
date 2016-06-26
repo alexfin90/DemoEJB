@@ -39,7 +39,6 @@ public class BeanStartup {
     	System.out.println("Init Countries and Service-EJB Startup Singleton");
     	coutries = entityManager.createQuery("select c from Country c",Country.class)
 		.getResultList();
-    	System.out.println(coutries.get(0).getProvinces().get(0).getName());
     	provinces = entityManager.createQuery("select p from Province p", Province.class)
     	.getResultList();
     }
